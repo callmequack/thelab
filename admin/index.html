@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Editor — The Lab</title><link rel="stylesheet" href="../assets/admin.css"></head><body>
+<header class="admin-top"><a class="brand" href="../">THE LAB<span>.</span></a><span>EDITORIAL WORKSPACE</span><a href="../">VIEW WEBSITE ↗</a></header>
+<main class="admin-wrap"><div class="page-intro"><p class="eyebrow">CONTENT MANAGEMENT / 001</p><h1>Write something<span>.</span></h1><p>Draft, edit and publish articles to The Lab.</p></div>
+<section class="panel" id="connectionPanel"><h2>Connect your GitHub repository</h2><p class="hint">Create a fine-grained personal access token with Contents: Read and write access to your website repository. The token is kept only in this browser tab's session storage and is never saved in the website files.</p>
+<div class="field-grid"><label>GitHub username<input id="owner" placeholder="your-username"></label><label>Repository name<input id="repo" placeholder="your-username.github.io"></label><label>Branch<input id="branch" value="main"></label></div>
+<label>Fine-grained GitHub access token<input id="token" type="password" placeholder="github_pat_…" autocomplete="off"></label>
+<div class="actions"><button id="connectBtn" class="primary">Connect repository</button><a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Create a token ↗</a><span id="connectionStatus" class="status"></span></div></section>
+<section class="panel editor-panel" id="editorPanel" hidden><div class="editor-heading"><div><p class="eyebrow">NEW STORY / STREAM TECH</p><h2>Article editor</h2></div><button id="disconnectBtn" class="quiet">Disconnect</button></div>
+<label>Article title<input id="title" maxlength="120" placeholder="Give your article a title"></label>
+<label>Short description<textarea id="excerpt" rows="2" maxlength="240" placeholder="A short introduction shown on the homepage"></textarea></label>
+<div class="field-grid"><label>Category<input id="category" value="Stream Tech"></label><label>Cover image<input id="cover" type="file" accept="image/*"></label></div>
+<div id="imagePreview" class="image-preview" hidden></div>
+<label>Article content <span class="hint-inline">Markdown supported — use ## for headings, **bold**, and - for lists.</span><textarea id="body" class="body-input" placeholder="# Start writing&#10;&#10;Write your article here..."></textarea></label>
+<div class="editor-bottom"><span id="wordCount" class="hint">0 words · ~1 min read</span><button id="publishBtn" class="primary">Publish article ↗</button></div><div id="publishStatus" class="status"></div>
+<div class="existing"><h3>Published articles</h3><div id="existingList" class="existing-list">Connect to load your articles.</div></div></section>
+<p class="security-note">Security note: use a fine-grained token limited to this repository with Contents read/write permission. Anyone with access to this browser session can use the token. Disconnect and close the tab when finished. GitHub Pages is public; published articles and images are public.</p>
+</main><script src="admin.js"></script></body></html>
