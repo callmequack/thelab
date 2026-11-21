@@ -1,51 +1,44 @@
 # The Lab — GitHub Pages website
 
-A minimalist dark editorial website with a fixed left sidebar, Stream Tech category, article search, article images, reading-time estimates and a browser-based publishing dashboard.
+A minimalist dark editorial website with a fixed left sidebar, three article categories (Stream Tech, Speedruns and Resources), article search, cover images, reading-time estimates and a browser-based publishing dashboard.
 
-## 1. Publish the website on GitHub Pages
+## Website
 
-1. Create a GitHub repository. For the simplest URL, name it `YOUR-USERNAME.github.io`.
-2. Upload **all files and folders** from this package to the repository root. Keep the folder structure intact.
-3. In GitHub, open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select branch `main` and folder `/ (root)`, then Save.
-6. Wait for the deployment to finish. Your site will be at `https://YOUR-USERNAME.github.io/`.
+The site is hosted from this repository using GitHub Pages. Its current project URL is:
 
-For a repository with another name, the site URL will usually be `https://YOUR-USERNAME.github.io/REPOSITORY-NAME/`. The relative links in this site support that setup too.
+https://callmequack.github.io/thelab/
 
-## 2. Connect the article dashboard
+## Article editor
 
-Open `https://YOUR-SITE-URL/admin/`.
+Open https://callmequack.github.io/thelab/admin/ and connect using a fine-grained GitHub personal access token.
 
-Create a fine-grained personal access token:
-1. Visit https://github.com/settings/personal-access-tokens/new
-2. Set **Resource owner** to your GitHub account.
-3. Under **Repository access**, choose **Only select repositories**, then select this website repository.
-4. Under **Repository permissions**, set **Contents** to **Read and write**. Metadata read access is normally included automatically.
-5. Generate the token and copy it.
+Create a token at https://github.com/settings/personal-access-tokens/new:
+1. Set the resource owner to your GitHub account.
+2. Choose **Only select repositories** and select **thelab**.
+3. Set **Contents** permission to **Read and write**.
+4. Generate and copy the token.
 
-In the dashboard, enter your GitHub username, repository name, branch (`main` by default), and token. Click Connect. Write an article, optionally select a cover image, and publish.
+The editor is prefilled with the repository owner, repository name and main branch. Paste the token and connect. The token is held in this browser tab's session storage and is not committed to the repository. Disconnect when finished and close the tab.
 
-The token is held in this browser tab's `sessionStorage`; it is not committed to the repository. Disconnect when you finish and close the tab. Do not use a broad classic token or share the token.
+## Publishing and managing articles
 
-## 3. Writing articles
+- Write article content in Markdown.
+- Choose one of the categories: **Stream Tech**, **Speedruns** or **Resources**.
+- Optionally add a cover image up to 5 MB.
+- Publish new articles or edit existing ones from the editor.
+- Use **Delete** beside a published article to remove it from the public index and delete its Markdown file. The editor asks for confirmation first.
+- Uploaded cover images are intentionally retained when an article is deleted, because an image might be shared by another article.
+- GitHub Pages may take a minute or two to reflect a commit.
 
-- The editor accepts Markdown.
-- Use `## Heading` for section headings, `**bold**`, `- item` for lists, and fenced code blocks for code.
-- Cover images must be 5 MB or smaller.
-- Publishing commits the Markdown article, any cover image, and the updated `articles.json` index to your repository.
-- GitHub Pages then rebuilds the public site. Changes may take a minute or two to appear.
-- Reading time is estimated at 200 words per minute.
+## Security and limitations
 
-## Important limitations and security
+GitHub Pages is static hosting. The dashboard uses a GitHub fine-grained token in the browser to commit content to the repository. Anyone with access to your unlocked editor session can use the token within its repository permissions. Keep it private, restrict it to this repository, and disconnect after editing.
 
-GitHub Pages is static hosting. The dashboard uses a GitHub fine-grained token in the browser to commit content to the repository. This is convenient for a personal site, but anyone who can use your unlocked editor session can publish to your repository within the token's permissions. Keep the token private, restrict it to this one repository, and disconnect after editing.
+Published content and images are public. The editor does not provide server-side authentication or multiple editor accounts. The public site loads Markdown rendering libraries from jsDelivr and fonts from Google Fonts, so those enhancements require an internet connection.
 
-Published content and images are public. This starter dashboard supports creating and updating articles; it does not yet include deletion, multiple editor accounts, drafts, or server-side authentication. The public site loads Markdown rendering libraries from jsDelivr and fonts from Google Fonts, so those enhancements require an internet connection.
+## Main files
 
-## Files
-
-- `index.html` — homepage and article search
+- `index.html` — homepage, category navigation and search
 - `article.html` — article reading page
 - `articles.json` — public article index
 - `articles/` — Markdown article content
